@@ -1,6 +1,6 @@
 # dana
 
-FIXME
+Dana is a web application to allow Dana to explore the Paradise Papers dataset.
 
 ## Usage
 
@@ -25,4 +25,5 @@ java -jar target/server.jar
 
 ## License
 
-Copyright ©  FIXME
+Copyright © 2018 Brendan Boesen
+

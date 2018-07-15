@@ -1,4 +1,5 @@
 (ns dana.graph.core
+  "Provides schema and functions relating to the Paradise Papers graph."
   (:require [clojure.spec.alpha :as s]))
 
 (s/def :dana.graph.core.node/node-id integer?)

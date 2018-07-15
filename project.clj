@@ -10,6 +10,9 @@
                   ;; MySQL
                   [org.clojure/java.jdbc "0.7.7"]
                   [mysql/mysql-connector-java "8.0.11"]
+
+                  ;; In-memory graph datastore
+                  [ubergraph "0.5.1"]
                   ]
 
    :ring {:handler dana.handler/app}

@@ -13,6 +13,9 @@
 
                   ;; In-memory graph datastore
                   [ubergraph "0.5.1"]
+
+                  ;; Neo4J
+                  [clojurewerkz/neocons "3.2.0"]
                   ]
 
    :ring {:handler dana.handler/app}

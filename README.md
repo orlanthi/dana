@@ -51,6 +51,13 @@ Check the data has loaded:
 mysql -uroot -ppassword paradise -e "select count(*) from edges;"
 ```
 
+Install Neo4J:
+```
+brew install neo4j
+```
+
+Login to the Neo4J server (http://localhost:7474/browser/) using usename/password `neo4j` and change the password to `password`.
+
 ## Usage
 
 ### Run the application locally
@@ -84,3 +91,10 @@ java -jar target/server.jar
 
 Copyright © 2018 Brendan Boesen
 
+# Useful Neo4J Queries
+
+* Count all nodes: `match (n) return count(n)`
+* Count all relationships `match (n)-[r]->() return count(r)`
+
+* Delete all relationships: `match (n)-[r]->() delete r`
+* Delete all nodes (after deleting relationships): `match (n) delete n`

@@ -1,7 +1,21 @@
 (ns dana.handler
   (:require [compojure.api.sweet :refer :all]
             [ring.util.http-response :refer :all]
-            [dana.graph.core]))
+            [dana.graph.core]
+            [dana.graph.ubergraph]
+            [dana.paradise-sql.core]))
+
+(def graph (atom nil))
+
+(defn load-ubergraph []
+  (swap! graph (fn [old]
+                 (-> (dana.graph.ubergraph/graph)
+                     (dana.graph.ubergraph/add-nodes (dana.paradise-sql.core/nodes))
+                     (dana.graph.ubergraph/add-edges (dana.paradise-sql.core/edges)))))
+  nil)
+
+(defn load-graph []
+  (load-ubergraph))
 
 (def app
   (api
@@ -30,6 +44,9 @@
        :query-params [from-node-id :- :dana.graph.core.node/node-id
                       to-node-id :- :dana.graph.core.node/node-id]
        
-       (ok {:result #_[]  [{:node-id from-node-id, :description "node"}
-                           {:relationship-type "link to"}
-                           {:node-id to-node-id, :description "node"}]})))))
+       (do
+         (if (nil? @graph) (load-graph))
+         #_(ok {:result #_[]  [{:node-id from-node-id, :description "node"}
+                               {:relationship-type "link to"}
+                               {:node-id to-node-id, :description "node"}]})
+         (ok {:result (dana.graph.ubergraph/shortest-path @graph from-node-id to-node-id)}))))))

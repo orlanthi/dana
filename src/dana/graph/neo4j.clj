@@ -46,10 +46,8 @@
                    "}), "
                    "p=shortestPath((n1)-[*..15]-(n2)) "
                    "RETURN p")
-        results (cypher/tquery conn
-                           query
-                           #_{:node1_id node1-id
-                              :node2_id node2-id})]
+        results (cypher/tquery conn query)]
+
     (if (empty? results)
       []
       (let [result (first results)]
@@ -62,7 +60,7 @@
   (let [nodes-map (reduce (fn [m node]
                             (let [node-id (:n.node_id node)
                                   neo4j-node (nodes/create conn {:node_id node-id
-                                                              :name (:n.name node)})]
+                                                                 :name (:n.name node)})]
                               (assoc m node-id neo4j-node)))
                           {}
                           nodes)]
@@ -73,8 +71,8 @@
 
 (defn get-node-by-node-id [conn id]
   (let [results (cypher/tquery conn
-                           "MATCH (n) where n.node_id = {node_id} RETURN n"
-                           {:node_id id})]
+                               "MATCH (n) where n.node_id = {node_id} RETURN n"
+                               {:node_id id})]
     (if (>(count results) 1)
       (throw (ex-info "Multiple results from find" {:node_id id :count (count results)}))
       (let [result (first results)]

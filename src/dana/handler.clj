@@ -13,7 +13,7 @@
                            (-> (in-memory/graph)
                                (in-memory/add-nodes (paradise-sql/nodes))
                                (in-memory/add-edges (paradise-sql/edges)))))
-  in-memory-graph)
+  nil) ; returning nil for ease of development in repl
 
 (def app
   (api

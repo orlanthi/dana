@@ -1,8 +1,7 @@
 (ns dana.graph.ubergraph-test
   (:require [clojure.test :refer :all]
             [ubergraph.core]
-            [dana.graph.ubergraph :refer :all]
-            #_[clojure.spec.alpha :as s]))
+            [dana.graph.ubergraph :refer :all]))
 
 (defn re [pattern]
   (re-pattern (java.util.regex.Pattern/quote pattern)))

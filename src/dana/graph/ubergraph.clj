@@ -87,8 +87,3 @@
           []
           (path->edn graph edges))))))
 
-#_(def my-graph (-> (graph)
-                  (add-nodes (dana.paradise-sql.core/nodes))
-                  (add-edges (dana.paradise-sql.core/edges))))
-
-#_(shortest-path my-graph 84100000 81001128)

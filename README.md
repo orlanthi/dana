@@ -10,7 +10,9 @@ You will need a local mysql database loaded with the Paradise Papers MySQL dump.
 
 > Assumes you have `brew` installed.
 
-Install mysql:
+#### MySQL
+
+Install mysql by running:
 ```
 brew install mysql
 ```
@@ -22,18 +24,18 @@ mysql_secure_installation
 ```
 > In reponse to the secure script, answer the following:
 > * Would you like to setup VALIDATE PASSWORD plugin?
-> ** No
+>     No
 > * Change the password for root ?
-> ** Yes
-> ** Set it to 'password'
+>    Yes
+>    Set it to 'password'
 > * Remove anonymous users?
-> ** Yes
+>    Yes
 > * Disallow root login remotely?
-> ** Yes
+>    Yes
 > * Remove test database and access to it?
-> ** Yes
+>    Yes
 > * Reload privilege tables now?
-> ** Yes
+>    Yes
 
 Test your connection:
 ```
@@ -51,7 +53,9 @@ Check the data has loaded:
 mysql -uroot -ppassword paradise -e "select count(*) from edges;"
 ```
 
-Install Neo4J:
+#### Neo4J
+
+Install Neo4J by running:
 ```
 brew install neo4j
 ```
@@ -64,7 +68,8 @@ Login to the Neo4J server (http://localhost:7474/browser/) using usename/passwor
 
 `lein ring server`
 
-This will open up a web-browser showing a 'swagger' view of the API. Expand the shortest-paths endpoint and enter two node ids, eg: XXX and XXX, then hit 'Try it out!'.
+This will open up a web-browser showing a 'swagger' view of the API. Expand the shortest-paths endpoint and enter two node ids, 
+eg: 84100000 and 81001128, then hit 'Try it out!'.
 
 ### Run the tests
 
@@ -90,6 +95,8 @@ java -jar target/server.jar
 ## License
 
 Copyright © 2018 Brendan Boesen
+
+-------------------------------
 
 # Useful Neo4J Queries
 

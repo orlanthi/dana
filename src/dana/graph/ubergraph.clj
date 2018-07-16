@@ -1,4 +1,5 @@
 (ns dana.graph.ubergraph
+  "Functions to support the creation and querying of an in-memory graph datastore using ubergraph"
   (:require [ubergraph.core :as uber]
             [ubergraph.alg :as alg]
             [clojure.spec.alpha :as s]))

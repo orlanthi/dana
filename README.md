@@ -1,10 +1,10 @@
 # dana
 
-Dana is a web application to allow Dana to explore the Paradise Papers dataset.
+This is a web application to allow Dana to explore the Paradise Papers dataset.
 
 ## Setup
 
-You will need a local mysql database loaded with the Paradise Papers MySQL dump. (Contact author for availability.)
+You will need a local mysql database loaded with the Paradise Papers MySQL dump.
 
 ### OSX
 
@@ -24,18 +24,18 @@ mysql_secure_installation
 ```
 > In reponse to the secure script, answer the following:
 > * Would you like to setup VALIDATE PASSWORD plugin?
->     No
+>   * No
 > * Change the password for root ?
->    Yes
->    Set it to 'password'
+>   * Yes
+>   * Set it to 'password'
 > * Remove anonymous users?
->    Yes
+>   * Yes
 > * Disallow root login remotely?
->    Yes
+>   * Yes
 > * Remove test database and access to it?
->    Yes
+>   * Yes
 > * Reload privilege tables now?
->    Yes
+>   * Yes
 
 Test your connection:
 ```

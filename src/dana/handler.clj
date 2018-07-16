@@ -47,7 +47,7 @@
             (GET "/in-memory/shortest-path" []
                  :no-doc false
                  :description (str "As per /shortest-path but uses an in-memory database. (Note:"
-                                   " this can take up to 30 s to load the first time.")
+                                   " this can take up to 30 s to load the first time.)")
 
                  :query-params [from-node-id :- :dana.graph.core.node/node-id
                                 to-node-id :- :dana.graph.core.node/node-id]
